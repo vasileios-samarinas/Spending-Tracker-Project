@@ -4,7 +4,8 @@ DROP TABLE transactions;
 
 CREATE TABLE merchants(
   id SERIAL primary key,
-  name VARCHAR(255) not null
+  name VARCHAR(255) not null,
+  logo VARCHAR(255)
 );
 
 CREATE TABLE categories(
