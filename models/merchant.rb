@@ -2,7 +2,6 @@ require_relative( '../db/sql_runner' )
 
 class Merchant
 
-
 attr_accessor :name,:logo,:id
 
   def initialize(options)
@@ -24,10 +23,14 @@ attr_accessor :name,:logo,:id
       RETURNING id"
       values = [@name,@logo]
       results = SqlRunner.run(sql,values)
-      @id = results.first()['id'].to_i
+      @id=results.first()['id'].to_i
     end
 
-
+def delete()
+  sql="DELETE FROM merchants WHERE id =$1"
+  values=[@id]
+  SqlRunner.run(sql,values)
+end
 
 def self.delete_all()
   sql = "DELETE FROM merchants"
@@ -46,4 +49,4 @@ return result
 end
 
 
-    end
+end
