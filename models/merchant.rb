@@ -27,10 +27,23 @@ attr_accessor :name,:logo,:id
       @id = results.first()['id'].to_i
     end
 
-    def self.delete_all()
-      sql = "DELETE FROM merchants"
-      SqlRunner.run(sql)
-    end
+
+
+def self.delete_all()
+  sql = "DELETE FROM merchants"
+    SqlRunner.run(sql)
+end
+
+def self.all()
+  sql="SELECT * FROM merchants"
+  merchant_data = SqlRunner.run(sql)
+  return Merchant.map_items(merchant_data)
+end
+
+def self.map_items(merchant_data)
+  result = merchant_data.map{|merchant| Merchant.new(merchant)}
+return result
+end
 
 
     end

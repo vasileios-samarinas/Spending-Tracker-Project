@@ -24,10 +24,22 @@ class Category
       @id=results.first()['id'].to_i
     end
 
+
+
 def self.delete_all()
   sql = "DELETE FROM categories"
   SqlRunner.run(sql)
 end
 
+def self.all()
+  sql="SELECT * FROM categories"
+  category_data = SqlRunner.run(sql)
+  return Category.map_items(category_data)
+end
+
+def self.map_items(category_data)
+  result = category_data.map{|category| Category.new(category)}
+  return result
+end
 
 end
