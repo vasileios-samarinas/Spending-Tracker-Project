@@ -1,6 +1,6 @@
 DROP TABLE transactions;
 DROP TABLE merchants;
-DROP TABLE transactions;
+DROP TABLE categories;
 
 CREATE TABLE merchants(
   id SERIAL primary key,
@@ -10,12 +10,10 @@ CREATE TABLE merchants(
 
 CREATE TABLE categories(
   id SERIAL primary key,
-  name VARCHAR(255) not null
-);
+  name VARCHAR(255) not null);
 
 CREATE TABLE transactions(
   id SERIAL primary key,
-  category_id INT REFERENCES category(id),
-  merchant_id INT REFERENCES merchant(id),
-  amount INT
-);
+  category_id INT4 REFERENCES categories(id) ON DELETE CASCADE,
+  merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
+  amount INT);
