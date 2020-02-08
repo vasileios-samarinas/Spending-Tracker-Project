@@ -1,0 +1,12 @@
+<h1>Categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for category in @categories %>
+  <tr>
+    <td><a href="/categories/<%= category.id %>"><%= category.name %></a></td>
+  </tr>
+  <% end %>
+</table>
