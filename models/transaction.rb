@@ -3,8 +3,7 @@ require_relative( '../db/sql_runner' )
 
 class Transaction
 
-
-  attr_accessor :category_id,:merchant_id,:amount, :id
+attr_accessor :category_id,:merchant_id,:amount, :id
 
   def initialize(options)
     @id=options['id'].to_i if options['id']
@@ -31,9 +30,9 @@ class Transaction
   end
 
   def update()
-  sql="UPDATE transactions SET (category_id,merchant_id,amount)=($1,$2,$3) WHERE id=$4"
-  values=[@category_id, @merchant_id, @amount,@id]
-  SqlRunner.run(sql,values)
+    sql="UPDATE transactions SET (category_id,merchant_id,amount)=($1,$2,$3) WHERE id=$4"
+    values=[@category_id, @merchant_id, @amount,@id]
+    SqlRunner.run(sql,values)
   end
 
   def self.delete_all()
@@ -41,25 +40,32 @@ class Transaction
     SqlRunner.run(sql)
   end
 
-def self.all()
-  sql="SELECT * FROM transactions"
-  transaction_data = SqlRunner.run(sql)
-  return Transaction.map_items(transaction_data)
-end
+  def self.all()
+    sql="SELECT * FROM transactions"
+    transaction_data = SqlRunner.run(sql)
+    return Transaction.map_items(transaction_data)
+  end
 
-def category()
-  sql="SELECT * FROM categories where id=$1"
-  values=[@category_id]
-  results=SqlRunner.run(sql,values)
-   return Category.new(results.first)
-end
+  def category()
+    sql="SELECT * FROM categories where id=$1"
+    values=[@category_id]
+    results=SqlRunner.run(sql,values)
+    return Category.new(results.first)
+  end
 
-def self.find(id)
-sql="SELECT * FROM transactions WHERE id=$1"
-values=[id]
-results=SqlRunner.run(sql,values)
-return Transaction.new(results.first)
-end
+  def merchant()
+    sql="SELECT * FROM merchants where id=$1"
+    values=[@merchant_id]
+    results=SqlRunner.run(sql,values)
+    return Merchant.new(results.first)
+  end
+
+  def self.find(id)
+    sql="SELECT * FROM transactions WHERE id=$1"
+    values=[id]
+    results=SqlRunner.run(sql,values)
+    return Transaction.new(results.first)
+  end
 
   def self.map_items(transaction_data)
     result = transaction_data.map{|transaction| Transaction.new(transaction)}
@@ -67,4 +73,4 @@ end
   end
 
 
-  end
+end
