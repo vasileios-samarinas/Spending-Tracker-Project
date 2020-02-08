@@ -36,7 +36,7 @@ class Transaction
   end
 
   def self.total_amount()
-    sql="SELECT SUM(amount) AS amount FROM transactions"
+    sql="SELECT SUM(amount) FROM transactions"
     result=SqlRunner.run(sql)
     return result.to_a
   end
