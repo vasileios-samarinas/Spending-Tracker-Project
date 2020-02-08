@@ -47,6 +47,13 @@ def self.all()
   return Transaction.map_items(transaction_data)
 end
 
+def self.find(id)
+sql="SELECT * FROM transactions WHERE id=$1"
+values=[id]
+results=SqlRunner.run(sql,values)
+return Transaction.new(results.first)
+end
+
   def self.map_items(transaction_data)
     result = transaction_data.map{|transaction| Transaction.new(transaction)}
     return result
