@@ -26,8 +26,14 @@ class Category
 
 def delete()
   sql="DELETE FROM categories WHERE id =$1"
-    values=[@id]
-SqlRunner.run(sql,values)
+  values=[@id]
+  SqlRunner.run(sql,values)
+end
+
+def update()
+  sql="UPDATE categories SET name=$1 WHERE id=$2"
+  values=[@name,@id]
+  SqlRunner.run(sql,values)
 end
 
 
