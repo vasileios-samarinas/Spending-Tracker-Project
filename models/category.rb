@@ -48,6 +48,13 @@ def self.all()
   return Category.map_items(category_data)
 end
 
+def self.find(id)
+  sql="SELECT*FROM categories where id=$1"
+  values=[id]
+  results= SqlRunner.run(sql,values)
+  return Category.new(results.first)
+end
+
 def self.map_items(category_data)
   result = category_data.map{|category| Category.new(category)}
   return result
