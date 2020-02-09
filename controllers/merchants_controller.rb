@@ -27,3 +27,9 @@ post '/merchants' do
   @merchant.save()
   erb(:"merchants/create")
 end
+
+#EDIT
+get '/merchants/:id/edit' do
+@merchant=Merchant.find(params[:id])
+erb(:"merchants/edit")
+end
