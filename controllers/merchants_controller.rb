@@ -17,6 +17,6 @@ end
 
 # SHOW
 get '/merchants/:id' do
-  @merchants = Merchant.find(params[:id])
+  @merchant = Merchant.find(params[:id])
   erb(:"merchants/show")
 end

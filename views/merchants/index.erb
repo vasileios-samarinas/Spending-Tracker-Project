@@ -1,6 +1,4 @@
 <% for merchant in @merchants %>
-<p>Name:<%= merchant.name() %></p>
-<p>Logo:<%=merchant.logo()%> </p>
   <p><a href="/merchants/<%= merchant.id%>"><%=merchant.name %></a></p>
-  <p><a href="/merchants/<%= merchant.id%>"><%=merchant.logo %></a></p>
+  <img src=<%=merchant.logo %> height="200">
 <% end %>

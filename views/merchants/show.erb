@@ -1,4 +1,5 @@
-<p>Merchant: <%= @merchant.name %></p>
-<p><a href="/merchants/<%= @merchant.id %>/edit">Edit Merchant Name</a></p>
-<p>Logo: <%= @merchant.logo %></p>
-<p><a href="/merchants/<%= @merchant.id %>/edit">Edit Merchant Logo</a></p>
+<p>Merchant Name: <%= @merchant.name %></p>
+<p>Logo: <img src=<%=@merchant.logo %> height="200"></p>
+<p><a href="/merchants/<%= @merchant.id %>/edit">Edit Merchant</a></p>
+<form method="post" action="/merchants/<%= @merchant.id %>/delete">
+  <input type="submit" value="Delete Merchant"/>
