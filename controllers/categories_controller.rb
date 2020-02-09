@@ -15,3 +15,20 @@ end
 get '/categories/new' do
 erb(:"categories/new")
 end
+
+# SHOW
+get '/categories/:id' do
+  @category = Category.find(params[:id])
+  erb(:"categories/show")
+end
+
+#CREATE
+
+
+#EDIT
+
+
+#UPDATE
+
+
+#DELETE
