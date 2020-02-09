@@ -33,3 +33,11 @@ get '/merchants/:id/edit' do
 @merchant=Merchant.find(params[:id])
 erb(:"merchants/edit")
 end
+
+
+#UPDATE
+post '/merchants/:id' do
+  @merchant = Merchant.new(params)
+  @merchant.update
+  redirect "/merchants/#{@merchant.id}"
+end
