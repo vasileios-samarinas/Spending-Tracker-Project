@@ -23,6 +23,11 @@ get '/categories/:id' do
 end
 
 #CREATE
+post '/categories' do
+  @category = Category.new(params)
+  @category.save()
+  erb(:"categories/create")
+end
 
 
 #EDIT
