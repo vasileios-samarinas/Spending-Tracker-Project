@@ -45,3 +45,9 @@ post '/categories/:id' do
 end
 
 #DELETE
+
+post '/categories/:id/delete' do 
+  category=Category.find( params[:id] )
+  category.delete()
+  redirect to '/categories'
+end
