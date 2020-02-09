@@ -31,6 +31,10 @@ end
 
 
 #EDIT
+get '/categories/:id/edit' do
+@category=Category.find(params[:id])
+erb(:"categories/edit")
+end
 
 
 #UPDATE
