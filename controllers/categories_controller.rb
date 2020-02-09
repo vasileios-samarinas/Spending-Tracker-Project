@@ -46,7 +46,7 @@ end
 
 #DELETE
 
-post '/categories/:id/delete' do 
+post '/categories/:id/delete' do
   category=Category.find( params[:id] )
   category.delete()
   redirect to '/categories'
