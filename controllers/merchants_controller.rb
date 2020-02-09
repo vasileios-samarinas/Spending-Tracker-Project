@@ -20,3 +20,10 @@ get '/merchants/:id' do
   @merchant = Merchant.find(params[:id])
   erb(:"merchants/show")
 end
+
+#CREATE
+post '/merchants' do
+  @merchant = Merchant.new(params)
+  @merchant.save()
+  erb(:"merchants/create")
+end
