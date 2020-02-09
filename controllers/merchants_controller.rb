@@ -41,3 +41,11 @@ post '/merchants/:id' do
   @merchant.update
   redirect "/merchants/#{@merchant.id}"
 end
+
+#DELETE
+
+post '/merchants/:id/delete' do
+  merchant=Merchant.find( params[:id] )
+  merchant.delete()
+  redirect to '/merchants'
+end
