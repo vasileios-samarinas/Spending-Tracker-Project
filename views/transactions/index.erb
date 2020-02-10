@@ -1,6 +1,25 @@
+<table class="transactions">
+  <tr>
+    <th>Merchant</th>
+    <th>Categories</th>
+    <th>Amount</th>
+  </tr>
 <% for transaction in @transactions %>
-  <p><a href="/transactions/<%= transaction.id%>"><%=transaction.amount %></a></p>
+  <!-- <p><a href="/transactions/<%= transaction.id%>"><%=transaction.amount %></a></p>
   <p><a href="/transactions/<%= transaction.id%>"><%=transaction.merchant.name %></a></p>
   <p><a href="/transactions/<%= transaction.id%>"><%=transaction.category.name %></a></p>
-  <hr />
+  <hr /> -->
+
+  <tr>
+    <td><a href="/transactions/<%= transaction.id%>"><%=transaction.merchant.name %></a></td>
+    <td><%=transaction.category.name %></td>
+    <td><%=transaction.amount%></td>
+  </tr>
 <% end %>
+<tr class="intro">
+  <td>Total Amount</td>
+  <td></td>
+    <td><%= Transaction.total_amount %></td>
+</tr>
+
+</table>

@@ -1,4 +1,9 @@
 <% for category in @categories %>
-<p> Name:<%= category.name() %></p>
   <p><a href="/categories/<%= category.id%>"><%=category.name %></a></p>
 <% end %>
+<form method="post" action="/categories">
+  <label for="category_name">Category Name:</label>
+    <input id="category_name" type="text" name="name" />
+
+  <input type='submit' value="Create Category"/>
+</form>

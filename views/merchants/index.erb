@@ -1,4 +1,13 @@
 <% for merchant in @merchants %>
   <p><a href="/merchants/<%= merchant.id%>"><%=merchant.name %></a></p>
-  <img src=<%=merchant.logo %> height="200">
+  <img src=<%=merchant.logo %> height="100">
 <% end %>
+<form method="post" action="/merchants">
+  <label for="merchant_name">Merchant Name:</label>
+    <input id="merchant_name" type="text" name="name" />
+
+  <label for="merchant_logo">Merchant Logo:</label>
+    <input id="merchant_logo" type="text" name="name" />
+
+  <input type='submit' value="Create Merchant"/>
+</form>
