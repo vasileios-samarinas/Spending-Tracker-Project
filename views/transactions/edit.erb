@@ -1,0 +1,11 @@
+<form method="post" action="/transactions/<%= @transactions.id%>">
+  <label for="transaction_amount"">Transaction Amount:</label>
+  <input
+  type="text"
+  name="amount"
+  id="transaction_amount"
+  value="<%= @transactions.amount%>"
+  />
+
+<input type='submit' value="Edit Amount">
+</form>

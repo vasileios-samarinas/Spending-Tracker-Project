@@ -31,3 +31,16 @@ post '/transactions' do
   @transactions.save()
   erb(:"transactions/create")
 end
+
+#EDIT
+get '/transactions/:id/edit' do
+@transactions=Transaction.find(params[:id])
+erb(:"transactions/edit")
+end
+
+#UPDATE
+post '/transactions/:id' do
+  @transactions = Transaction.new(params)
+  @transactions.update
+  redirect "/transactions/#{@transactions.id}"
+end
