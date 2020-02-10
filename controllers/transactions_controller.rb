@@ -11,3 +11,14 @@ get '/transactions' do
   @transactions = Transaction.all
   erb ( :"transactions/index" )
 end
+
+#NEW
+get '/transactions/new' do
+erb(:"transactions/new")
+end
+
+# # SHOW
+# get '/merchants/:id' do
+#   @transaction = Transaction.find(params[:id])
+#   erb(:"transactions/show")
+# end
