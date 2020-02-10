@@ -35,7 +35,8 @@ label {
 /* https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
 .transactions {
   border-collapse: collapse;
-  width: 100%;
+  width: 95%;
+  margin: 2.5%;
 }
 
 .transactions td,th {
