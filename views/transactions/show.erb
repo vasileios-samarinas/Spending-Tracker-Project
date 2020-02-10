@@ -2,3 +2,5 @@
 <p>Transaction Merchant: <%= @transactions.merchant.name %></p>
 <p>Transaction Category: <%= @transactions.category.name %></p>
 <p><a href="/transactions/<%= @transactions.id %>/edit">Edit Transaction</a></p>
+<form method="post" action="/transactions/<%= @transactions.id %>/delete">
+  <input type="submit" value="Delete Transaction"/>
