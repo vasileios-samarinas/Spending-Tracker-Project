@@ -35,23 +35,6 @@ class Transaction
     SqlRunner.run(sql,values)
   end
 
-  def self.total_amount()
-    sql="SELECT amount FROM transactions"
-    amounts_data=SqlRunner.run(sql) 
-    return amounts_data.reduce(0) {|total, hash| total += hash['amount'].to_i}
-  end
-
-  def self.delete_all()
-    sql = "DELETE FROM transactions"
-    SqlRunner.run(sql)
-  end
-
-  def self.all()
-    sql="SELECT * FROM transactions"
-    transaction_data = SqlRunner.run(sql)
-    return Transaction.map_items(transaction_data)
-  end
-
   def category()
     sql="SELECT * FROM categories where id=$1"
     values=[@category_id]
@@ -64,6 +47,24 @@ class Transaction
     values=[@merchant_id]
     results=SqlRunner.run(sql,values)
     return Merchant.new(results.first)
+  end
+
+
+  def self.total_amount()
+    sql="SELECT amount FROM transactions"
+    amounts_data=SqlRunner.run(sql)
+    return amounts_data.reduce(0) {|total, hash| total += hash['amount'].to_i}
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM transactions"
+    SqlRunner.run(sql)
+  end
+
+  def self.all()
+    sql="SELECT * FROM transactions"
+    transaction_data = SqlRunner.run(sql)
+    return Transaction.map_items(transaction_data)
   end
 
   def self.find(id)

@@ -1,11 +1,33 @@
-<form method="post" action="/transactions/<%= @transactions.id%>">
+<form method="POST" action="/transactions/<%= @transaction.id%>">
   <label for="transaction_amount"">Transaction Amount:</label>
   <input
   type="text"
   name="amount"
   id="transaction_amount"
-  value="<%= @transactions.amount%>"
-  />
+  value="<%= @transaction.amount%>"/>
 
-<input type='submit' value="Edit Amount">
+  <label for="merchant_select">Select Merchant:</label>
+  <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id%>">
+    <% @merchants.each do |merchant| %>
+      <% if merchant.id == @transaction.merchant_id %>
+        <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+      <% else %>
+        <option value=<%= merchant.id %>><%= merchant.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <label for="category_select">Select Category:</label>
+  <select name="category_id" id="category_select" selected="<%= @transaction.category_id%>">
+    <% @categories.each do |category| %>
+      <% if category.id == @transaction.category_id %>
+        <option value=<%= category.id %> selected><%= category.name %></option>
+      <% else %>
+        <option value=<%= category.id %>><%= category.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+
+  <input type='submit' value="Edit Transaction">
 </form>
