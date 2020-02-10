@@ -36,9 +36,9 @@ class Transaction
   end
 
   def self.total_amount()
-    sql="SELECT SUM(amount) FROM transactions"
-    result=SqlRunner.run(sql)
-    return result.to_a
+    sql="SELECT amount FROM transactions"
+    amounts_data=SqlRunner.run(sql) 
+    return amounts_data.reduce(0) {|total, hash| total += hash['amount'].to_i}
   end
 
   def self.delete_all()
