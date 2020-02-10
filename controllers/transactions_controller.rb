@@ -17,8 +17,8 @@ get '/transactions/new' do
 erb(:"transactions/new")
 end
 
-# # SHOW
-# get '/merchants/:id' do
-#   @transaction = Transaction.find(params[:id])
-#   erb(:"transactions/show")
-# end
+# SHOW
+get '/transactions/:id' do
+  @transactions = Transaction.find(params[:id])
+  erb(:"transactions/show")
+end
