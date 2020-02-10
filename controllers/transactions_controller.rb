@@ -14,11 +14,20 @@ end
 
 #NEW
 get '/transactions/new' do
-erb(:"transactions/new")
+  @categories = Category.all
+  @merchants = Merchant.all
+  erb(:"transactions/new")
 end
 
 # SHOW
 get '/transactions/:id' do
   @transactions = Transaction.find(params[:id])
   erb(:"transactions/show")
+end
+
+#CREATE
+post '/transactions' do
+  @transactions = Transaction.new(params)
+  @transactions.save()
+  erb(:"transactions/create")
 end

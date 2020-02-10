@@ -1,12 +1,26 @@
 <form method="post" action="/transactions">
-  <label for="transcation_amount">Transcation Amount:</label>
-    <input id="transcation_amount" type="text" name="name" />
+  <label for="transaction_amount">Transaction Amount:</label>
+  <input id="transaction_amount" type="number" name="amount" />
 
-    <label for="transcation_merchant">Transcation Merchant:</label>
-      <input id="transcation_merchant" type="text" name="name" />
 
-      <label for="transcation_category">Transcation Category:</label>
-        <input id="transcation_category" type="text" name="name" />
+  <label>
+    Transaction Merchant:
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </label>
 
-  <input type='submit' value="Create Transcation"/>
+  <label>
+    Transaction Category:
+    <select name="category_id">
+      <% for category in @categories %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+
+  <input type='submit' value="Create Transaction"/>
 </form>
