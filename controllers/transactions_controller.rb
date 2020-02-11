@@ -9,6 +9,8 @@ also_reload( '../models/*' )
 # READ ALL INDEX
 get '/transactions' do
   @transactions = Transaction.all
+  @categories = Category.all
+  @merchants = Merchant.all
   erb ( :"transactions/index" )
 end
 

@@ -1,5 +1,11 @@
+<table class="transactions">
+  <tr>
+    <th>Categories</th>
+  </tr>
 <% for category in @categories %>
-  <p><a href="/categories/<%= category.id%>"><%=category.name %></a></p>
+<tr>
+  <td><p><a href="/categories/<%= category.id%>"><%=category.name %></a></p></td>
+  </tr>
 <% end %>
 <form method="post" action="/categories">
   <label for="category_name">Category Name:</label>

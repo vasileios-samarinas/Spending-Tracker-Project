@@ -1,6 +1,13 @@
+<table class="transactions">
+  <tr>
+    <th>Merchants</th>
+    <th>Logo</th>
+  </tr>
 <% for merchant in @merchants %>
-  <p><a href="/merchants/<%= merchant.id%>"><%=merchant.name %></a></p>
-  <img src=<%=merchant.logo %> height="100">
+<tr>
+  <td><p><a href="/merchants/<%= merchant.id%>"><%=merchant.name %></a></p></td>
+  <td><img src=<%=merchant.logo %> height="100"></td>
+  </tr>
 <% end %>
 <form method="post" action="/merchants">
   <label for="merchant_name">Merchant Name:</label>
