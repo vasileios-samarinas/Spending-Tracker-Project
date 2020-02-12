@@ -3,12 +3,14 @@
     <th>Merchant</th>
     <th>Categories</th>
     <th>Amount</th>
+    <th>Transaction Date</th>
   </tr>
 <% for transaction in @transactions %>
   <tr>
     <td><a href="/transactions/<%= transaction.id%>"><%=transaction.merchant.name %></a></td>
     <td><%=transaction.category.name %></td>
     <td><%=transaction.amount%></td>
+    <td><%=transaction.transaction_date%></td>
   </tr>
 <% end %>
 <tr class="intro">
@@ -21,6 +23,8 @@
   <label for="transaction_amount">Transaction Amount:</label>
   <input id="transaction_amount" type="number" name="amount" />
 
+  <label for="transaction_date">Transaction Date:</label>
+  <input id="transaction_date" type="text" name="transaction_date" />
 
   <label>
     Transaction Merchant:

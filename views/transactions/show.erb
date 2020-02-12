@@ -1,6 +1,7 @@
 <p>Transaction Amount: <%= @transactions.amount %></p>
 <p>Transaction Merchant: <%= @transactions.merchant.name %></p>
 <p>Transaction Category: <%= @transactions.category.name %></p>
+<p>Transaction Date: <%= @transactions.transaction_date %></p>
 <p><a href="/transactions/ <%= @transactions.id %>/edit" class="myButton">Edit Transaction</a></p>
 <form method="post" action="/transactions/<%= @transactions.id %>/delete">
   <input class="myButton" type="submit" value="Delete Transaction"/>
