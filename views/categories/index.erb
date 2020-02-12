@@ -1,15 +1,20 @@
 <table class="transactions">
   <tr>
     <th>Categories</th>
+    <th colspan="2">Actions</th>
   </tr>
 <% for category in @categories %>
 <tr>
-  <td><p><a href="/categories/<%= category.id%>"><%=category.name %></a></p></td>
+  <td><%=category.name %></td>
+  <td><a href="/categories/<%= category.id %>/edit" class="myButton">Edit Category</a></td>
+  <td><form method="post" action="/categories/<%= category.id %>/delete">
+    <input class="myButton" type="submit" value="Delete Category"/>
+</td>
   </tr>
 <% end %>
 <form method="post" action="/categories">
   <label for="category_name">Category Name:</label>
-    <input id="category_name" type="text" name="name" />
+    <input  id="category_name" type="text" name="name" />
 
-  <input type='submit' value="Create Category"/>
+  <input class="myButton" type='submit' value="Create Category"/>
 </form>

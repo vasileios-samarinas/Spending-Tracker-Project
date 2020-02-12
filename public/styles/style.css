@@ -23,7 +23,7 @@ li a {
   color: white;
   text-align: center;
   padding: 16px;
-  text-decoration: overline;
+  text-decoration: none;
 }
 
 li a:hover {
@@ -34,6 +34,10 @@ label {
   color: #000000;
   font-size: 20px;
 }
+
+
+
+
 
 /* https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
 .transactions {
@@ -62,4 +66,49 @@ label {
 .intro {
   background: #ff0000;
   font-weight: bold;
+}
+
+.myButton {
+	background-color:#44c767;
+	border-radius:28px;
+	border:0px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:18px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+  margin: 20px
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.center {
+  display: block;
+      margin: 10px auto;
+      width: 420px;
+      border: 1px solid grey;
+      padding: 10px;
+}
+
+.center h2,img{
+text-align: center
+}
+
+.center img{
+  width:400px
+}
+
+.center1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

@@ -17,4 +17,5 @@ CREATE TABLE categories(
     id SERIAL primary key,
     category_id INT REFERENCES categories(id) ON DELETE CASCADE,
     merchant_id INT REFERENCES merchants(id) ON DELETE CASCADE,
-    amount INT);
+    amount INT,
+    transaction_date DATE);

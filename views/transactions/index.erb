@@ -5,11 +5,6 @@
     <th>Amount</th>
   </tr>
 <% for transaction in @transactions %>
-  <!-- <p><a href="/transactions/<%= transaction.id%>"><%=transaction.amount %></a></p>
-  <p><a href="/transactions/<%= transaction.id%>"><%=transaction.merchant.name %></a></p>
-  <p><a href="/transactions/<%= transaction.id%>"><%=transaction.category.name %></a></p>
-  <hr /> -->
-
   <tr>
     <td><a href="/transactions/<%= transaction.id%>"><%=transaction.merchant.name %></a></td>
     <td><%=transaction.category.name %></td>
@@ -21,8 +16,6 @@
   <td></td>
     <td><%= Transaction.total_amount %></td>
 </tr>
-
-</table>
 
 <form method="post" action="/transactions">
   <label for="transaction_amount">Transaction Amount:</label>
@@ -48,5 +41,7 @@
   </label>
 
 
-  <input type='submit' value="Create Transaction"/>
+  <input class="myButton" type='submit' value="Create Transaction"/>
 </form>
+
+</table>

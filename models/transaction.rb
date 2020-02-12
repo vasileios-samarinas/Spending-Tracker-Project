@@ -3,22 +3,23 @@ require_relative( '../db/sql_runner' )
 
 class Transaction
 
-  attr_accessor :category_id,:merchant_id,:amount, :id
+  attr_accessor :category_id,:merchant_id,:amount,:transaction_date, :id
 
   def initialize(options)
     @id=options['id'].to_i if options['id']
     @category_id=options['category_id'].to_i
     @merchant_id=options['merchant_id'].to_i
     @amount=options['amount']
+    @transaction_date=options['transaction_date']
   end
 
   def save()
     sql = "INSERT INTO transactions
-    (category_id,merchant_id,amount)
+    (category_id,merchant_id,amount,transaction_date)
     VALUES
-    ($1, $2 ,$3)
+    ($1, $2 ,$3,$4)
     RETURNING id"
-    values =[@category_id, @merchant_id, @amount]
+    values =[@category_id, @merchant_id, @amount,@transaction_date]
     results = SqlRunner.run(sql,values)
     @id = results.first()['id'].to_i
   end
@@ -30,8 +31,8 @@ class Transaction
   end
 
   def update()
-    sql="UPDATE transactions SET (category_id,merchant_id,amount)=($1,$2,$3) WHERE id=$4"
-    values=[@category_id, @merchant_id, @amount,@id]
+    sql="UPDATE transactions SET (category_id,merchant_id,amount,transaction_date)=($1,$2,$3,$4) WHERE id=$4"
+    values=[@category_id, @merchant_id, @amount,@transaction_date,@id]
     SqlRunner.run(sql,values)
   end
 
