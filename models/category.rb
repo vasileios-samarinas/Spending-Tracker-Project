@@ -2,7 +2,8 @@ require_relative( '../db/sql_runner' )
 
 class Category
 
-  attr_accessor :name ,:id
+  attr_accessor :name
+  attr_reader :id 
 
   def initialize(options)
     @name= options['name']
