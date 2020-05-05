@@ -3,8 +3,7 @@ require_relative( '../db/sql_runner' )
 
 class Transaction
 
-  attr_accessor :category_id,:merchant_id,:amount,:transaction_date
-  attr_reader :id 
+  attr_accessor :category_id,:merchant_id,:amount,:transaction_date, :id
 
   def initialize(options)
     @id=options['id'].to_i if options['id']
@@ -32,9 +31,7 @@ class Transaction
   end
 
   def update()
-    sql="UPDATE transactions SET (category_id,merchant_id,amount,transaction_date)=
-    ($1,$2,$3,$4)
-    WHERE id=$5"
+    sql="UPDATE transactions SET (category_id,merchant_id,amount,transaction_date)=($1,$2,$3,$4) WHERE id=$5"
     values=[@category_id, @merchant_id, @amount,@transaction_date,@id]
     SqlRunner.run(sql,values)
   end

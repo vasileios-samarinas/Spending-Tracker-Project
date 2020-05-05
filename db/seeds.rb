@@ -1,7 +1,7 @@
 require_relative("../models/category.rb")
 require_relative("../models/merchant.rb")
 require_relative("../models/transaction.rb")
-
+require("pry-byebug")
 
 
 Transaction.delete_all()
@@ -54,7 +54,7 @@ merchant4.save()
 transaction1 = Transaction.new({
   "category_id"=>category2.id ,
   "merchant_id"=>merchant2.id,
-  "amount"=>"150",
+  "amount"=>"100",
   "transaction_date"=>"2020-01-02"
 })
 
@@ -64,7 +64,7 @@ transaction2=Transaction.new({
   "category_id"=> category2.id,
   "merchant_id"=> merchant2.id,
   "amount" =>"50",
-  "transaction_date"=>"2020-01-03"
+  "transaction_date"=>"2019-02-01"
 })
 transaction2.save()
 
@@ -72,7 +72,7 @@ transaction3=Transaction.new({
   "category_id"=> category3.id,
   "merchant_id"=> merchant4.id,
   "amount" =>"70",
-  "transaction_date"=>"2020-01-05"
+  "transaction_date"=>"2019-12-01"
 })
 transaction3.save()
 
@@ -80,7 +80,7 @@ transaction4=Transaction.new({
   "category_id"=> category4.id,
   "merchant_id"=> merchant1.id,
   "amount" => "230",
-  "transaction_date"=>"2020-01-09"
+  "transaction_date"=>"2019-12-01"
 })
 transaction4.save()
 
@@ -88,14 +88,17 @@ transaction5=Transaction.new({
   "category_id"=> category5.id,
   "merchant_id"=> merchant1.id,
   "amount" =>"50",
-  "transaction_date"=>"2020-01-12"
+  "transaction_date"=>"2020-01-01"
 })
 transaction5.save()
 
 transaction6=Transaction.new({
   "category_id"=> category2.id,
   "merchant_id"=> merchant3.id,
-  "amount" =>"25",
-  "transaction_date"=>"2020-02-01"
+  "amount" =>"15",
+  "transaction_date"=>"2019-12-01"
 })
 transaction6.save
+
+binding.pry
+nil
