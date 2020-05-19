@@ -7,5 +7,3 @@ require_relative('controllers/merchants_controller')
 get '/' do
   erb( :index )
 end
-
-Category.all()
