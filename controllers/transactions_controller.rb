@@ -11,6 +11,7 @@ get '/transactions' do
   @transactions = Transaction.all
   @categories = Category.all
   @merchants = Merchant.all
+  @total = Transaction.total_amount
   erb ( :"transactions/index" )
 end
 
@@ -55,3 +56,12 @@ post '/transactions/:id/delete' do
   transaction.delete()
   redirect to '/transactions'
 end
+
+# FILTER TRANSACTION BY MERCHANT
+# post '/transactions/filter-by-merchant' do
+#   @filter = Merchant.find(params["merchant_id"]).name()
+#   @transactions = Transaction.filter_by_merchant(params["merchant_id"])
+#   @merchants = Merchant.all
+#   @categories = Category.all
+#   erb ( :"transactions/index" )
+# end

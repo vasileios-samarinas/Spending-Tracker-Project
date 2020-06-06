@@ -1,5 +1,7 @@
 require_relative( '../db/sql_runner' )
-
+require_relative( './merchant')
+require_relative( './category')
+require("date")
 
 class Transaction
 
@@ -69,9 +71,9 @@ class Transaction
   end
 
   def self.find(id)
-    sql="SELECT * FROM transactions WHERE id=$1"
-    values=[id]
-    results=SqlRunner.run(sql,values)
+    sql = "SELECT * FROM transactions WHERE id=$1"
+    values = [id]
+    results = SqlRunner.run(sql,values)
     return Transaction.new(results.first)
   end
 
@@ -79,6 +81,24 @@ class Transaction
     result = transaction_data.map{|transaction| Transaction.new(transaction)}
     return result
   end
+
+  def self.sort_by_date(transactions)
+  transactions.sort_by! {
+    |transaction|
+    Date.parse(transaction.transaction_date())
+  }
+  transactions.reverse!
+  return transactions
+end
+
+  # def self.filter_by_merchant(merchant_id)
+  #   sql = "SELECT * FROM transactions
+  #   WHERE merchant_id = $1"
+  #   value = [merchant_id]
+  #   results = SqlRunner.run(sql, value)
+  #   transactions = results.map {|transaction| Transaction.new(transaction)}
+  #   return self.sort_by_date(transactions)
+  # end
 
 
 end

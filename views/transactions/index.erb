@@ -49,3 +49,19 @@
 </form>
 
 </table>
+
+<form action="/transactions/filter-by-merchant" method="post">
+    <label>
+    Filter by merchant:
+      <select name="merchant_id" required>
+
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.id %>"><%= merchant.name.capitalize %></option>
+        <% end %>
+      </select>
+    </label>
+
+    <input type='submit' value="Filter">
+  </form>
+
+  <p> Total: £<%= sprintf("%.2f", @total) %></p>
