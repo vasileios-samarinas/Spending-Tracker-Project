@@ -1,3 +1,5 @@
+<h1> Total: £<%= sprintf("%.2f", @total) %></h1>
+
 <table class="transactions">
   <tr>
     <th>Merchant</th>
@@ -21,14 +23,14 @@
 
 <form method="post" action="/transactions">
   <label for="transaction_amount">Transaction Amount:</label>
-  <input id="transaction_amount" type="number" name="amount" />
+  <input id="transaction_amount" required type="number" name="amount" />
 
   <label for="transaction_date">Transaction Date:</label>
   <input id="transaction_date" type="text" name="transaction_date" />
 
   <label>
     Transaction Merchant:
-    <select name="merchant_id">
+    <select required name="merchant_id">
       <% for merchant in @merchants %>
       <option value="<%= merchant.id %>"><%= merchant.name %></option>
       <% end %>
@@ -37,7 +39,7 @@
 
   <label>
     Transaction Category:
-    <select name="category_id">
+    <select required name="category_id">
       <% for category in @categories %>
       <option value="<%= category.id %>"><%= category.name %></option>
       <% end %>
@@ -64,4 +66,6 @@
     <input type='submit' value="Filter">
   </form>
 
-  <p> Total: £<%= sprintf("%.2f", @total) %></p>
+<!-- <p>
+  <a class="myButton" href="/transactions">Clear filter</a>
+</p> -->

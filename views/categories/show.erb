@@ -1,5 +1,5 @@
 <p>Category: <%= @category.name %></p>
 <p><a href="/categories/<%= @category.id %>/edit" class="myButton">Edit Category</a></p>
-<p>If you want to delete a category please delete the below button</p>
+<p>Warning! This will delete all the transactions with <%= @category.name %> attached to it!</p>
 <form method="post" action="/categories/<%= @category.id %>/delete">
-  <input class="myButton" type="submit" value="Delete Category"/>
+  <input class="myButton" type="submit" style="background-color:red" value="Delete Category"/>

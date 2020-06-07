@@ -2,6 +2,7 @@
   <h2><%= @merchant.name %> </h2>
   <img src=<%=@merchant.logo%> class="center1">
   <div class="center1"><a href="/merchants/<%= @merchant.id %>/edit" class="myButton">Edit Merchant</a></div>
+  <p>Warning! This will delete all the transactions with <%= @merchant.name %> attached to it!</p>
   <form method="post" action="/merchants/<%= @merchant.id %>/delete" class="center1">
-    <input class="myButton" type="submit" value="Delete Merchant"/>
+    <input class="myButton" type="submit" style="background-color:red" value="Delete Merchant"/>
 </div>

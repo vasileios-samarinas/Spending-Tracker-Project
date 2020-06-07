@@ -61,6 +61,7 @@ end
 # post '/transactions/filter-by-merchant' do
 #   @filter = Merchant.find(params["merchant_id"]).name()
 #   @transactions = Transaction.filter_by_merchant(params["merchant_id"])
+#   @total = Transaction.total_amount
 #   @merchants = Merchant.all
 #   @categories = Category.all
 #   erb ( :"transactions/index" )
